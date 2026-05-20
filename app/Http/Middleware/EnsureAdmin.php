@@ -14,7 +14,8 @@ class EnsureAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (! $request->user() || ! $request->user()->isAdmin()) {
-            abort(403, 'Only administrators can access this section.');
+            return redirect()->route('rooms.index')
+                ->with('error', 'Only administrators can access this section.');
         }
 
         return $next($request);

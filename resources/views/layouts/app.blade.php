@@ -50,6 +50,10 @@
             <div class="flash-success">{{ session('success') }}</div>
         @endif
 
+        @if (session('error'))
+            <div class="flash-error">{{ session('error') }}</div>
+        @endif
+
         @if ($errors->any())
             <div class="flash-error">
                 <strong>Please review the form:</strong>
